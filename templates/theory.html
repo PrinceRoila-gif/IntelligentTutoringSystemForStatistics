@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theory - Mean, Median, and Mode</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/theroy.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Theory of Statistics</h1>
+        <p>Learn about the fundamental concepts of statistics: Mean, Median, and Mode. These are measures of central tendency that help us understand the distribution of data.</p>
+
+        <div class="statistics-container">
+            <!-- Left Box (Mean) -->
+            <div class="stat-box left">
+                <h2>Mean</h2>
+                <p><strong>Definition:</strong> The mean is the average of a set of numbers. It is calculated by adding all the numbers together and then dividing by the total count of numbers.</p>
+                <p><strong>Formula:</strong> <code>Mean = (Sum of all numbers) / (Number of values)</code></p>
+                <p><strong>Example:</strong> <code>Mean = (2 + 3 + 5 + 7 + 8) / 5 = 5</code></p>
+            </div>
+
+            <!-- Center Box (Median) -->
+            <div class="stat-box center">
+                <h2>Median</h2>
+                <p><strong>Definition:</strong> The median is the middle value in a set of numbers. It separates the higher half and the lower half of the data set. If the data set has an even number of values, the median is the average of the two middle numbers.</p>
+                <p><strong>Formula:</strong> <code>Median = Middle value (if odd count) or Average of two middle values (if even count)</code></p>
+                <p><strong>Example:</strong> <code>Median = (5 + 7) / 2 = 6</code></p>
+            </div>
+
+            <!-- Right Box (Mode) -->
+            <div class="stat-box right">
+                <h2>Mode</h2>
+                <p><strong>Definition:</strong> The mode is the value that appears most frequently in a data set. A data set may have one mode, more than one mode, or no mode at all.</p>
+                <p><strong>Formula:</strong> <code>Mode = Most frequent value(s)</code></p>
+                <p><strong>Example:</strong> <code>Mode = 3 (appears more frequently than any other number)</code></p>
+            </div>
+        </div>
+
+        <h3>Summary:</h3>
+        <ul>
+            <li><strong>Mean:</strong> The average of all values.</li>
+            <li><strong>Median:</strong> The middle value in an ordered set of numbers.</li>
+            <li><strong>Mode:</strong> The most frequent value(s) in the data set.</li>
+        </ul>
+
+        <br>
+        <a href="{{ url_for('statistics_input') }}"><button>Go to Statistics Calculation</button></a>
+    </div>
+</body>
+</html>

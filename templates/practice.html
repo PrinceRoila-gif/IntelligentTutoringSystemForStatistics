@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Practice Quiz</title>
+    <script>
+        function validateForm() {
+            // Check if an answer is selected
+            var selectedAnswer = document.querySelector('input[name="answer"]:checked');
+            if (!selectedAnswer) {
+                // If no answer is selected, alert the user and prevent form submission
+                alert("Please select an answer before submitting.");
+                return false;  // Prevent form submission
+            }
+            return true;  // Allow form submission
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome {{ student_name }}!</h1>
+        <h2>Practice Quiz</h2>
+
+        <!-- Display the question -->
+        <p><strong>{{ question.question }}</strong></p>
+
+        <!-- Display feedback after submitting the answer -->
+        {% if feedback %}
+            <div class="feedback {% if feedback.startswith('Correct') %}correct{% else %}incorrect{% endif %}">
+                {{ feedback }}
+            </div>
+        {% endif %}
+
+        <!-- Form for answer options -->
+        <form method="POST" onsubmit="return validateForm()">
+            {% for option in question.options %}
+                <input type="radio" name="answer" value="{{ option }}"
+                    {% if selected_answer == option %}checked{% endif %}> 
+                {{ option }}<br>
+            {% endfor %}
+            <br>
+            <button type="submit">Submit Answer</button>
+
+            <!-- Display the Next Question button only if feedback is shown -->
+            {% if feedback %}
+                <button type="submit" name="next_question" value="1">Next Question</button>
+            {% endif %}
+        
+        </form>
+    </br>  <a href="{{ url_for('statistics_input') }}"><button>Go to Statistics Calculation</button></a>
+</br>
+    </div>
+
+</body>
+</html>
